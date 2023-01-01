@@ -2,12 +2,16 @@ import React from 'react'
 import {categories} from '../utils/utility.js'
 
 
-const Sidebar = ({selectCategory, setSelectCategory}) => {
+const Sidebar = ({selectCategory, setSelectCategory, setVideos}) => {
   return (
     <>
       {categories.map((category, index) => {
         return <button
-                 onClick={() => setSelectCategory(category.name)} 
+                 onClick={() => {
+                    setSelectCategory(category.name);
+                    // balikan ke default array kosong, agar snipper load tampil
+                    setVideos([]);
+                 }} 
                  key={index} 
                  className="flex p-2 flex-row items-center justify-start sm:py-3 sm:px-4"
                  style={{
